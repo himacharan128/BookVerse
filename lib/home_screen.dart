@@ -10,21 +10,21 @@ class _homeState extends State<home> {
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-  static const List<Widget> _widgetOptions = <Widget>[
+  static const List<Widget> _widgetOptions = <Widget>[//instead of texts we have to use screens
     Text(
-      'Index 0: Home',
+      'Index 0: Home',// just for reference
       style: optionStyle,
     ),
     Text(
-      'Index 1: Library',
+      'Index 1: Library',// just for reference
       style: optionStyle,
     ),
     Text(
-      'Index 2: Wishlist',
+      'Index 2: Wishlist',// just for reference
       style: optionStyle,
     ),
     Text(
-      'Index 3: Store',
+      'Index 3: Store',// just for reference
       style: optionStyle,
     ),
   ];
