@@ -6,10 +6,15 @@ class home extends StatefulWidget {
   State<home> createState() => _homeState();
 }
 class _homeState extends State<home> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-
+  //static const List<Widget> _widgetOptions = <Widget>[
+  //  HomeScreen(),
+  //  LibraryScreen(),
+  //  WishlistScreen(),
+  //  StoreScreen(),
+  //];
   static const List<Widget> _widgetOptions = <Widget>[//instead of texts we have to use screens
     Text(
       'Index 0: Home',// just for reference
@@ -44,6 +49,9 @@ class _homeState extends State<home> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.blue,
+        selectedItemColor: Colors.black,
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -61,13 +69,12 @@ class _homeState extends State<home> {
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.store),
+            icon: Icon(Icons.local_grocery_store_sharp),
             label: 'Store',
             backgroundColor: Colors.blue,
           ),
         ],
-        //currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
+        currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
     );
