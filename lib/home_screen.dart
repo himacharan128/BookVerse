@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'HomeScreen.dart';
+import 'LibraryScreen.dart';
+import 'StoreScreen.dart';
+import 'WishlistScreen.dart';
+
 class home extends StatefulWidget {
   const home({super.key});
   @override
@@ -9,29 +14,11 @@ class _homeState extends State<home> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  //static const List<Widget> _widgetOptions = <Widget>[
-  //  HomeScreen(),
-  //  LibraryScreen(),
-  //  WishlistScreen(),
-  //  StoreScreen(),
-  //];
-  static const List<Widget> _widgetOptions = <Widget>[//instead of texts we have to use screens
-    Text(
-      'Index 0: Home',// just for reference
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Library',// just for reference
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Wishlist',// just for reference
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Store',// just for reference
-      style: optionStyle,
-    ),
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomeScreen(),
+    LibraryScreen(),
+    WishlistScreen(),
+    StoreScreen(),
   ];
 
   void _onItemTapped(int index) {

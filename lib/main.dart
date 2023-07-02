@@ -11,7 +11,7 @@ class BookVerseApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: 'login',
+      initialRoute: 'home',
       routes: {
         'login': (context) => login(),
         'home': (context) => home() ,
