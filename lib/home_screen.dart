@@ -33,7 +33,9 @@ class _homeState extends State<home> {
         title: Text('BookVerse') ,centerTitle: true,
       ),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child:Container(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        )
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.blue,
