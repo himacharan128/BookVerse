@@ -10,7 +10,7 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   void initState(){
     super.initState();
-    //_navigatetohome();
+    _navigatetohome();
   }
 _navigatetohome() async {
     await Future.delayed(Duration(milliseconds: 1500),(){});
@@ -24,12 +24,16 @@ _navigatetohome() async {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height:100,
-                width:100,
-                color: Colors.blue,
+                height:110,
+                width:110,
+                color: Colors.black,
+                child: Padding(
+                  padding: EdgeInsets.all(2), // Adjust the padding as needed
+                  child: Image.asset('assets/images/LOGO.jpg'),
+                ),
               ),
               Container(
-                padding:const EdgeInsets.fromLTRB(0,40,0,0),
+                padding:const EdgeInsets.fromLTRB(0,10,0,0),
                 child: Text(
                   'BOOKVERSE', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
               ),
