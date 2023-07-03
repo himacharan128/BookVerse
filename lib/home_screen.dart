@@ -1,86 +1,314 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'Book.dart';
-import 'WishlistScreen.dart';
-import 'LibraryScreen.dart';
-import 'StoreScreen.dart';
-import 'HomeScreen.dart';
-import 'wishlist_books_notifier.dart';
+import 'book.dart';
+import 'book_details_screen.dart';
+import 'wishlist_screen.dart';
 
-class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
-
+class HomeScreen extends StatefulWidget {
   @override
-  State<Home> createState() => _HomeState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeState extends State<Home> {
-  int _selectedIndex = 0;
-  final WishlistBooksNotifier wishlistBooksNotifier = WishlistBooksNotifier();
-  static Set<Book> wishlistBooks = {}; // Create an empty set of wishlistBooks
+class _HomeScreenState extends State<HomeScreen> {
+  final List<Book> _books = [
+    Book(
+      title: 'Dune',
+      author: 'Frank Herbert',
+      description: 'Dune is a science fiction novel by Frank Herbert.',
+      imageUrl: 'https://example.com/images/dune.jpg',
+    ),
+    Book(
+      title: 'Ender\'s Game',
+      author: 'Orson Scott Card',
+      description:
+      'Ender\'s Game is a science fiction novel by Orson Scott Card.',
+      imageUrl: 'https://example.com/images/enders-game.jpg',
+    ),
+    Book(
+      title: 'Foundation',
+      author: 'Isaac Asimov',
+      description: 'Foundation is a science fiction novel by Isaac Asimov.',
+      imageUrl: 'https://example.com/images/foundation.jpg',
+    ),
+    Book(
+      title: 'Neuromancer',
+      author: 'William Gibson',
+      description: 'Neuromancer is a science fiction novel by William Gibson.',
+      imageUrl: 'https://example.com/images/neuromancer.jpg',
+    ),
+    Book(
+      title: 'Snow Crash',
+      author: 'Neal Stephenson',
+      description: 'Snow Crash is a science fiction novel by Neal Stephenson.',
+      imageUrl: 'https://example.com/images/snow-crash.jpg',
+    ),
+    Book(
+      title: 'To Kill a Mockingbird',
+      author: 'Harper Lee',
+      description:
+      'To Kill a Mockingbird is a novel by Harper Lee published in 1960.',
+      imageUrl: 'https://example.com/images/to-kill-a-mockingbird.jpg',
+    ),
+    Book(
+      title: 'Pride and Prejudice',
+      author: 'Jane Austen',
+      description:
+      'Pride and Prejudice is a novel by Jane Austen published in 1813.',
+      imageUrl: 'https://example.com/images/pride-and-prejudice.jpg',
+    ),
+    Book(
+      title: '1984',
+      author: 'George Orwell',
+      description:
+      '1984 is a dystopian novel by George Orwell published in 1949.',
+      imageUrl: 'https://example.com/images/1984.jpg',
+    ),
+    Book(
+      title: 'The Great Gatsby',
+      author: 'F. Scott Fitzgerald',
+      description:
+      'The Great Gatsby is a novel by F. Scott Fitzgerald published in 1925.',
+      imageUrl: 'https://example.com/images/the-great-gatsby.jpg',
+    ),
+    Book(
+      title: 'The Catcher in the Rye',
+      author: 'J.D. Salinger',
+      description:
+      'The Catcher in the Rye is a novel by J.D. Salinger published in 1951.',
+      imageUrl: 'https://example.com/images/the-catcher-in-the-rye.jpg',
+    ),
+    // Add more books here
+  ];
 
-  static List<Widget> _widgetOptions(BuildContext context) {
-    final notifier = Provider.of<WishlistBooksNotifier>(context);
-    return <Widget>[
-      HomeScreen(),
-      LibraryScreen(),
-      Builder(
-        builder: (context) => WishlistScreen(wishlistBooks: notifier.wishlistBooks),
-      ),
-      StoreScreen(),
-    ];
-  }
+  final List<Book> _recommendedBooks = [
+    Book(
+      title: 'Dune',
+      author: 'Frank Herbert',
+      description: 'Dune is a science fiction novel by Frank Herbert.',
+      imageUrl: 'https://example.com/images/dune.jpg',
+    ),
+    Book(
+      title: 'Ender\'s Game',
+      author: 'Orson Scott Card',
+      description:
+      'Ender\'s Game is a science fiction novel by Orson Scott Card.',
+      imageUrl: 'https://example.com/images/enders-game.jpg',
+    ),
+    Book(
+      title: 'Foundation',
+      author: 'Isaac Asimov',
+      description: 'Foundation is a science fiction novel by Isaac Asimov.',
+      imageUrl: 'https://example.com/images/foundation.jpg',
+    ),
+    Book(
+      title: 'Neuromancer',
+      author: 'William Gibson',
+      description: 'Neuromancer is a science fiction novel by William Gibson.',
+      imageUrl: 'https://example.com/images/neuromancer.jpg',
+    ),
+    Book(
+      title: 'Snow Crash',
+      author: 'Neal Stephenson',
+      description: 'Snow Crash is a science fiction novel by Neal Stephenson.',
+      imageUrl: 'https://example.com/images/snow-crash.jpg',
+    ),
+    // Add more recommended books here
+  ];
 
-  void _onItemTapped(int index) {
+  final List<Book> _popularBooks = [
+    Book(
+      title: 'To Kill a Mockingbird',
+      author: 'Harper Lee',
+      description:
+      'To Kill a Mockingbird is a novel by Harper Lee published in 1960.',
+      imageUrl: 'https://example.com/images/to-kill-a-mockingbird.jpg',
+    ),
+    Book(
+      title: 'Pride and Prejudice',
+      author: 'Jane Austen',
+      description:
+      'Pride and Prejudice is a novel by Jane Austen published in 1813.',
+      imageUrl: 'https://example.com/images/pride-and-prejudice.jpg',
+    ),
+    Book(
+      title: '1984',
+      author: 'George Orwell',
+      description:
+      '1984 is a dystopian novel by George Orwell published in 1949.',
+      imageUrl: 'https://example.com/images/1984.jpg',
+    ),
+    Book(
+      title: 'The Great Gatsby',
+      author: 'F. Scott Fitzgerald',
+      description:
+      'The Great Gatsby is a novel by F. Scott Fitzgerald published in 1925.',
+      imageUrl: 'https://example.com/images/the-great-gatsby.jpg',
+    ),
+    Book(
+      title: 'The Catcher in the Rye',
+      author: 'J.D. Salinger',
+      description:
+      'The Catcher in the Rye is a novel by J.D. Salinger published in 1951.',
+      imageUrl: 'https://example.com/images/the-catcher-in-the-rye.jpg',
+    ),
+    Book(
+      title: 'Foundation',
+      author: 'Isaac Asimov',
+      description: 'Foundation is a science fiction novel by Isaac Asimov.',
+      imageUrl: 'https://example.com/images/foundation.jpg',
+    ),
+    // Add more popular books here
+  ];
+
+  List<Book> _searchResults = [];
+
+  bool _isSearching = false;
+  TextEditingController _searchController = TextEditingController();
+
+  void _searchBooks(String keyword) {
+    List<Book> results = _books.where((book) {
+      return book.title.toLowerCase().contains(keyword.toLowerCase());
+    }).toList();
+
     setState(() {
-      _selectedIndex = index;
+      _searchResults = results;
     });
   }
 
   @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (_) => WishlistBooksNotifier(),
-    child: Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: const Text('BookVerse'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Container(
-          child: _widgetOptions(context).elementAt(_selectedIndex),
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blue,
-        selectedItemColor: Colors.black,
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-            backgroundColor: Colors.blue,
+        title: _isSearching
+            ? TextField(
+          controller: _searchController,
+          decoration: InputDecoration(
+            hintText: 'Search books...',
+            border: InputBorder.none,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.library_books),
-            label: 'Library',
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle),
-            label: 'Wishlist',
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_grocery_store_sharp),
-            label: 'Store',
-            backgroundColor: Colors.blue,
+          onChanged: _searchBooks,
+        )
+            : Text('BookVerse'),
+        actions: [
+          IconButton(
+            icon: Icon(_isSearching ? Icons.cancel : Icons.search),
+            onPressed: () {
+              setState(() {
+                _isSearching = !_isSearching;
+                _searchController.clear();
+                _searchResults.clear();
+              });
+            },
           ),
         ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
       ),
-    ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (_searchResults.isNotEmpty)
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text('Search Results'),
+              ),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: _searchResults.length,
+              itemBuilder: (context, index) {
+                Book book = _searchResults[index];
+                return ListTile(
+                  leading: Container(
+                    width: 50,
+                    child: Image.network(book.imageUrl),
+                  ),
+                  title: Text(book.title),
+                  subtitle: Text(book.author),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookDetailsScreen(book: book),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+            if (_searchResults.isEmpty)
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text('Recommended Books'),
+              ),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: _recommendedBooks.length,
+              itemBuilder: (context, index) {
+                Book book = _recommendedBooks[index];
+                return ListTile(
+                  leading: Container(
+                    width: 50, // Set the desired width for the leading widget
+                    child: Image.network(book.imageUrl),
+                  ),
+                  title: Text(book.title),
+                  subtitle: Text(book.author),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookDetailsScreen(book: book),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text('Popular Books'),
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: _popularBooks.length,
+              itemBuilder: (context, index) {
+                Book book = _popularBooks[index];
+                return ListTile(
+                  leading: Container(
+                    width: 50, // Set the desired width for the leading widget
+                    child: Image.network(book.imageUrl),
+                  ),
+                  title: Text(book.title),
+                  subtitle: Text(book.author),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BookDetailsScreen(book: book),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.favorite),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => WishlistScreen()),
+          );
+        },
+      ),
     );
   }
 }
