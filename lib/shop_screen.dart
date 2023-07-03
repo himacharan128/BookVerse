@@ -8,12 +8,14 @@ class ShopScreen extends StatelessWidget {
       author: 'Author 1',
       description: 'Description 1',
       imageUrl: 'image_url_1',
+      price: '19.99', // Add price for Book 1
     ),
     Book(
       title: 'Book 2',
       author: 'Author 2',
       description: 'Description 2',
       imageUrl: 'image_url_2',
+      price: '14.99', // Add price for Book 2
     ),
     // Add more books for sale here
   ];
@@ -46,7 +48,7 @@ class ShopScreen extends StatelessWidget {
               ],
             ),
             subtitle: Text(book.description),
-            trailing: Text('Price'),
+            trailing: Text('\$${book.price}'), // Display the price
           );
         },
       ),
