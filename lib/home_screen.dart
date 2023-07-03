@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-
-import 'HomeScreen.dart';
+import 'package:provider/provider.dart';
+import 'Book.dart';
+import 'WishlistScreen.dart';
 import 'LibraryScreen.dart';
 import 'StoreScreen.dart';
-import 'WishlistScreen.dart';
-import 'Book.dart';
+import 'HomeScreen.dart';
+import 'wishlist_books_notifier.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -15,13 +16,20 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
+  final WishlistBooksNotifier wishlistBooksNotifier = WishlistBooksNotifier();
+  static Set<Book> wishlistBooks = {}; // Create an empty set of wishlistBooks
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    HomeScreen(),
-    LibraryScreen(),
-    WishlistScreen(wishlistBooks: {}), // Add an empty set of wishlistBooks
-    StoreScreen(),
-  ];
+  static List<Widget> _widgetOptions(BuildContext context) {
+    final notifier = Provider.of<WishlistBooksNotifier>(context);
+    return <Widget>[
+      HomeScreen(),
+      LibraryScreen(),
+      Builder(
+        builder: (context) => WishlistScreen(wishlistBooks: notifier.wishlistBooks),
+      ),
+      StoreScreen(),
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -31,14 +39,16 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return ChangeNotifierProvider(
+        create: (_) => WishlistBooksNotifier(),
+    child: Scaffold(
       appBar: AppBar(
         title: const Text('BookVerse'),
         centerTitle: true,
       ),
       body: Center(
         child: Container(
-          child: _widgetOptions.elementAt(_selectedIndex),
+          child: _widgetOptions(context).elementAt(_selectedIndex),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -70,6 +80,7 @@ class _HomeState extends State<Home> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
+    ),
     );
   }
 }

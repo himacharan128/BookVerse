@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
+        child: const Text(
           'HOME',
-          style: optionStyle,
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
     );
   }
 }
+
