@@ -4,20 +4,22 @@ import 'HomeScreen.dart';
 import 'LibraryScreen.dart';
 import 'StoreScreen.dart';
 import 'WishlistScreen.dart';
+import 'Book.dart';
 
-class home extends StatefulWidget {
-  const home({super.key});
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
-  State<home> createState() => _homeState();
+  State<Home> createState() => _HomeState();
 }
-class _homeState extends State<home> {
+
+class _HomeState extends State<Home> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     LibraryScreen(),
-    WishlistScreen(),
+    WishlistScreen(wishlistBooks: {}), // Add an empty set of wishlistBooks
     StoreScreen(),
   ];
 
@@ -26,21 +28,23 @@ class _homeState extends State<home> {
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BookVerse') ,centerTitle: true,
+        title: const Text('BookVerse'),
+        centerTitle: true,
       ),
       body: Center(
-        child:Container(
+        child: Container(
           child: _widgetOptions.elementAt(_selectedIndex),
-        )
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.blue,
         selectedItemColor: Colors.black,
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -48,12 +52,12 @@ class _homeState extends State<home> {
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.library_books ),
+            icon: Icon(Icons.library_books),
             label: 'Library',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle ),
+            icon: Icon(Icons.add_circle),
             label: 'Wishlist',
             backgroundColor: Colors.blue,
           ),

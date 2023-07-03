@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
-class WishlistScreen extends StatefulWidget {
-  const WishlistScreen({super.key});
+import 'Book.dart';
+
+class WishlistScreen extends StatelessWidget {
+  final Set<Book> wishlistBooks;
+
+  const WishlistScreen({required this.wishlistBooks});
 
   @override
-  State<WishlistScreen> createState() => _WishlistScreenState();
-}
-
-class _WishlistScreenState extends State<WishlistScreen> {
-  @override
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text(
-          'WISHLIST',
-          style: optionStyle,
-        ),
+      appBar: AppBar(
+        title: const Text('Wishlist'),
+      ),
+      body: ListView.builder(
+        itemCount: wishlistBooks.length,
+        itemBuilder: (context, index) {
+          final book = wishlistBooks.elementAt(index);
+          return ListTile(
+            title: Text(book.title),
+            subtitle: Text(book.author),
+          );
+        },
       ),
     );
-
   }
 }

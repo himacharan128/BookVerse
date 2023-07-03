@@ -16,7 +16,7 @@ class BookVerseApp extends StatelessWidget {
       initialRoute: 'splash',
       routes: {
         'login': (context) => login(),
-        'home': (context) => home() ,
+        'home': (context) => Home() ,
         'splash':(context)=> Splash(),
       },
     );
