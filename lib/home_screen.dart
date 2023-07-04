@@ -14,67 +14,67 @@ class _HomeScreenState extends State<HomeScreen> {
       title: 'Dune',
       author: 'Frank Herbert',
       description: 'Dune is a science fiction novel by Frank Herbert.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'Ender\'s Game',
       author: 'Orson Scott Card',
       description:
       'Ender\'s Game is a science fiction novel by Orson Scott Card.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'Foundation',
       author: 'Isaac Asimov',
       description: 'Foundation is a science fiction novel by Isaac Asimov.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'Neuromancer',
       author: 'William Gibson',
       description: 'Neuromancer is a science fiction novel by William Gibson.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'Snow Crash',
       author: 'Neal Stephenson',
       description: 'Snow Crash is a science fiction novel by Neal Stephenson.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'To Kill a Mockingbird',
       author: 'Harper Lee',
       description:
       'To Kill a Mockingbird is a novel by Harper Lee published in 1960.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'Pride and Prejudice',
       author: 'Jane Austen',
       description:
       'Pride and Prejudice is a novel by Jane Austen published in 1813.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: '1984',
       author: 'George Orwell',
       description:
       '1984 is a dystopian novel by George Orwell published in 1949.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'The Great Gatsby',
       author: 'F. Scott Fitzgerald',
       description:
       'The Great Gatsby is a novel by F. Scott Fitzgerald published in 1925.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'The Catcher in the Rye',
       author: 'J.D. Salinger',
       description:
       'The Catcher in the Rye is a novel by J.D. Salinger published in 1951.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     // Add more books here
   ];
@@ -84,32 +84,32 @@ class _HomeScreenState extends State<HomeScreen> {
       title: 'Dune',
       author: 'Frank Herbert',
       description: 'Dune is a science fiction novel by Frank Herbert.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'Ender\'s Game',
       author: 'Orson Scott Card',
       description:
       'Ender\'s Game is a science fiction novel by Orson Scott Card.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'Foundation',
       author: 'Isaac Asimov',
       description: 'Foundation is a science fiction novel by Isaac Asimov.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'Neuromancer',
       author: 'William Gibson',
       description: 'Neuromancer is a science fiction novel by William Gibson.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'Snow Crash',
       author: 'Neal Stephenson',
       description: 'Snow Crash is a science fiction novel by Neal Stephenson.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     // Add more recommended books here
   ];
@@ -120,41 +120,41 @@ class _HomeScreenState extends State<HomeScreen> {
       author: 'Harper Lee',
       description:
       'To Kill a Mockingbird is a novel by Harper Lee published in 1960.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'Pride and Prejudice',
       author: 'Jane Austen',
       description:
       'Pride and Prejudice is a novel by Jane Austen published in 1813.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: '1984',
       author: 'George Orwell',
       description:
       '1984 is a dystopian novel by George Orwell published in 1949.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'The Great Gatsby',
       author: 'F. Scott Fitzgerald',
       description:
       'The Great Gatsby is a novel by F. Scott Fitzgerald published in 1925.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'The Catcher in the Rye',
       author: 'J.D. Salinger',
       description:
       'The Catcher in the Rye is a novel by J.D. Salinger published in 1951.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     Book(
       title: 'Foundation',
       author: 'Isaac Asimov',
       description: 'Foundation is a science fiction novel by Isaac Asimov.',
-      imageUrl: 'assets/images/dune.jpeg',
+      imageUrl: 'assets/images/dune.png',
     ),
     // Add more popular books here
   ];
@@ -225,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return ListTile(
                   leading: Container(
                     width: 50,
-                    child: Image.asset(book.imageUrl),
+                    child: Image.network('https://github.com/himacharan128/BookVerse/blob/fbd8812b21b95282b709445c9a3eab5b9c6be4ec/assets/images/dune.png'),
                   ),
                   title: Text(book.title),
                   subtitle: Text(book.author),
@@ -254,7 +254,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return ListTile(
                   leading: Container(
                     width: 50, // Set the desired width for the leading widget
-                    child: Image.network(book.imageUrl),
+                    child: Image.network('https://github.com/himacharan128/BookVerse/blob/fbd8812b21b95282b709445c9a3eab5b9c6be4ec/assets/images/dune.png'),
                   ),
                   title: Text(book.title),
                   subtitle: Text(book.author),
@@ -282,7 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return ListTile(
                   leading: Container(
                     width: 50, // Set the desired width for the leading widget
-                    child: Image.network(book.imageUrl),
+                    child: Image.network('https://github.com/himacharan128/BookVerse/blob/fbd8812b21b95282b709445c9a3eab5b9c6be4ec/assets/images/dune.png'),
                   ),
                   title: Text(book.title),
                   subtitle: Text(book.author),
