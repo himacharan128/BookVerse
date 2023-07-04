@@ -17,7 +17,8 @@ class BookDetailsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.network(book.imageUrl),
+            SizedBox(height: 50,),
+            Image.asset(book.imageUrl),
             Padding(
               padding: EdgeInsets.all(16.0),
               child: Text(
